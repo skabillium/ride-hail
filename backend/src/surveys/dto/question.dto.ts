@@ -8,5 +8,5 @@ export class QuestionDto {
   type: 'SingleChoice' | 'MultipleChoice' | 'FreeText';
 
   @ApiProperty({ example: ['Option 1', 'Option 2'] })
-  options: string[];
+  options?: string[];
 }

@@ -2,6 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
+/**
+ * TODO:
+ * 1. Remove default API endpoints.
+ * 2. Add validation to create dtos.
+ * 3. Add comments to special functions.
+ * 4. Find a solution for embedded dtos in swagger.
+ */
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
