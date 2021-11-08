@@ -34,4 +34,11 @@ export class UsersService {
   remove(id: string) {
     return this.UserModel.deleteOne({ _id: id });
   }
+
+  removeRated(userId: string, rideId: string) {
+    return this.UserModel.updateOne(
+      { _id: userId },
+      { $pull: { rated: rideId } },
+    );
+  }
 }
