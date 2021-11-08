@@ -24,13 +24,13 @@ export class RidesController {
   }
 
   @Get()
-  findAll(
-    @Query('user') user: string,
-    @Query('unratedOnly', new DefaultValuePipe(true), ParseBoolPipe)
-    unratedOnly: boolean,
-  ) {
-    if (unratedOnly && user) return this.ridesService.findAllUnrated(user);
+  findAll() {
     return this.ridesService.findAll();
+  }
+
+  @Get('unrated/:user')
+  findUnrated(@Param('user') user: string) {
+    return this.ridesService.findAllUnrated(user);
   }
 
   @Get(':id')
