@@ -6,6 +6,6 @@ import { Response, ResponseDocument } from './responses.schema';
 @Injectable()
 export class ResponsesService {
   constructor(
-    @InjectModel(Response.name) private RideModel: Model<ResponseDocument>,
+    @InjectModel(Response.name) private ResponseModel: Model<ResponseDocument>,
   ) {}
 }
