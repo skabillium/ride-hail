@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { RidesModule } from './rides/rides.module';
 import { RatingsModule } from './ratings/ratings.module';
 import { SurveysModule } from './surveys/surveys.module';
+import { ResponsesModule } from './responses/responses.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { SurveysModule } from './surveys/surveys.module';
     RidesModule,
     RatingsModule,
     SurveysModule,
+    ResponsesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
