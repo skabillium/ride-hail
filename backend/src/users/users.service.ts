@@ -5,7 +5,5 @@ import { User, UserDocument } from './users.schema';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectModel(User.name) private ProjectModel: Model<UserDocument>,
-  ) {}
+  constructor(@InjectModel(User.name) private UserModel: Model<UserDocument>) {}
 }

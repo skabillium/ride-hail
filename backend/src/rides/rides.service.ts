@@ -5,7 +5,5 @@ import { Ride, RideDocument } from './rides.schema';
 
 @Injectable()
 export class RidesService {
-  constructor(
-    @InjectModel(Ride.name) private ProjectModel: Model<RideDocument>,
-  ) {}
+  constructor(@InjectModel(Ride.name) private RideModel: Model<RideDocument>) {}
 }
