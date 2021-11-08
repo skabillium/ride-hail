@@ -20,6 +20,11 @@ export class RidesService {
     return this.RideModel.find();
   }
 
+  /**
+   * Get all rides that have not been rated by the user (not having a rating or a survey).
+   * @param userId Id of the user to be queried
+   * @returns Promise
+   */
   async findAllUnrated(userId: string) {
     const user = await this.usersService.findOne(userId);
     return this.RideModel.find({ _id: { $nin: user.rated } });

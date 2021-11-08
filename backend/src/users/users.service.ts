@@ -24,6 +24,12 @@ export class UsersService {
     return this.UserModel.findOne({ email });
   }
 
+  /**
+   * Add ride id to the rated ride id's field of the User model.
+   * @param userId Id of the user to be updated
+   * @param rideId Id of the rated ride
+   * @returns Promise
+   */
   updateRated(userId: string, rideId: string) {
     return this.UserModel.updateOne(
       { _id: userId },
@@ -35,6 +41,12 @@ export class UsersService {
     return this.UserModel.deleteOne({ _id: id });
   }
 
+  /**
+   * Remove ride from the rated ride id array.
+   * @param userId Id of the user to be updated
+   * @param rideId Id of the ride to remove
+   * @returns Promise
+   */
   removeRated(userId: string, rideId: string) {
     return this.UserModel.updateOne(
       { _id: userId },

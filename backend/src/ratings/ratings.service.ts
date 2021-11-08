@@ -12,12 +12,12 @@ export class RatingsService {
     private usersService: UsersService,
   ) {}
 
+  // Create a rating and update the rated rides array of the user.
   async create(createRatingDto: CreateRatingDto) {
     // Create rating
     const rating = await new this.RatingModel(createRatingDto).save();
     // Update user model
     await this.usersService.updateRated(rating.user, rating.ride);
-    // Return rating
     return rating;
   }
 
@@ -29,12 +29,11 @@ export class RatingsService {
     return this.RatingModel.find();
   }
 
+  // Remove a rating and update the rated rides array of the user.
   async remove(id: string) {
     const rating = await this.findOne(id);
-
     // Delete rating
     await this.RatingModel.deleteOne({ _id: id });
-
     // Update rated field on User model
     await this.usersService.removeRated(rating.user, rating.ride);
   }

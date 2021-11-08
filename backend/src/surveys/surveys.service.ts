@@ -22,6 +22,11 @@ export class SurveysService {
     return this.SurveyModel.findById(id);
   }
 
+  /**
+   * Get the latest survey that has been assigned to the user.
+   * @param userId Id of the user to query by
+   * @returns Promise
+   */
   findLatestByUser(userId: string) {
     return this.SurveyModel.findOne({ users: userId }).sort({ createdAt: -1 });
   }

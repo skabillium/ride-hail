@@ -10,8 +10,10 @@ export class Response {
   @Prop({ required: true, ref: 'Survey' })
   survey: string;
 
+  @Prop({ required: true, ref: 'Ride' })
+  ride: string;
+
   @Prop({ required: true, type: [SubmissionSchema] })
-  // TODO: Maybe change this to an interface
   submissions: Submission[];
 }
 

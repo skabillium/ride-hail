@@ -6,9 +6,11 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 /**
  * TODO:
  * 1. Remove default API endpoints. ✔️
- * 2. Add validation to create dtos.
- * 3. Add comments to special functions.
- * 4. Find a solution for embedded dtos in swagger.
+ * 2. Add validation to create dtos. ✔️
+ * 3. Add comments to special functions. ✔️
+ * 4. Find a solution for embedded dtos in swagger. ✔️
+ * 5. Update rated array on response creation/deletion.
+ * 6. Fix todos
  */
 
 async function bootstrap() {

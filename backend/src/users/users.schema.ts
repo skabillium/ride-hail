@@ -6,6 +6,7 @@ export class User {
   @Prop({ required: true })
   email: string;
 
+  // Array of the ids of the rides that have been rated for easy access
   @Prop()
   rated: string[];
 }
