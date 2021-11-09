@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { Container } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import axios from 'axios';
 
 import Ride from './Ride';
@@ -38,9 +39,14 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <h1>Dashboard</h1>
-      <p>Hello {userId}</p>
-      <p>Unrated rides {unratedRides.length}</p>
+      <Typography variant="h2" color="primary">
+        Dashboard
+      </Typography>
+      <Typography>
+        {unratedRides.length !== 0
+          ? `You have ${unratedRides.length} unrated rides`
+          : 'You have rated all your previous rides'}
+      </Typography>
 
       <Grid container spacing={3}>
         {unratedRides.map((ride, i) => (

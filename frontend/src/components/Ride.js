@@ -13,7 +13,7 @@ const Ride = ({ ride, survey }) => {
           subheader={new Date(ride.createdAt).toLocaleDateString()}
         />
         <CardContent>
-          <RatingModal active={activeModal} />
+          <RatingModal rideId={ride._id} active={activeModal} />
         </CardContent>
       </Card>
     </div>

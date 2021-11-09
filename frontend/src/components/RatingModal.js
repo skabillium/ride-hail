@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import Backdrop from '@material-ui/core/Backdrop';
 import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
@@ -19,12 +20,26 @@ const style = {
   p: 4,
 };
 
-const RatingModal = ({ active }) => {
+const RatingModal = ({ rideId, active }) => {
   const [open, setOpen] = React.useState(false);
+  const [stars, setStars] = React.useState(2.5);
+
   const handleOpen = () => {
     if (active) setOpen(true);
   };
   const handleClose = () => setOpen(false);
+
+  const handleSubmit = async (e) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    await axios.post('/ratings', {
+      user: user._id,
+      ride: rideId,
+      stars,
+    });
+
+    handleClose();
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -52,7 +67,20 @@ const RatingModal = ({ active }) => {
             <Typography id="transition-modal-title" variant="h6" component="h2">
               Rate this ride
             </Typography>
-            <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+            <Rating
+              name="half-rating"
+              defaultValue={stars}
+              precision={0.5}
+              onChange={(e, newValue) => setStars(newValue)}
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
           </Box>
         </Fade>
       </Modal>
