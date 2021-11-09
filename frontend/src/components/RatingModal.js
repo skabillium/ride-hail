@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Backdrop from '@material-ui/core/Backdrop';
 import Box from '@material-ui/core/Box';
@@ -24,8 +25,11 @@ const RatingModal = ({ rideId, active }) => {
   const [open, setOpen] = React.useState(false);
   const [stars, setStars] = React.useState(2.5);
 
+  const navigate = useNavigate();
+
   const handleOpen = () => {
     if (active) setOpen(true);
+    else navigate(`/survey/${rideId}`);
   };
   const handleClose = () => setOpen(false);
 
@@ -47,6 +51,7 @@ const RatingModal = ({ rideId, active }) => {
         onClick={handleOpen}
         fullWidth
         variant="contained"
+        color="primary"
         sx={{ mt: 3, mb: 2 }}
       >
         Rate ride

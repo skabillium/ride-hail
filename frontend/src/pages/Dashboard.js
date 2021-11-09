@@ -5,7 +5,7 @@ import { Container } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import axios from 'axios';
 
-import Ride from './Ride';
+import Ride from '../components/Ride';
 
 const Dashboard = () => {
   // Get User id from url
@@ -30,8 +30,11 @@ const Dashboard = () => {
       const unratedRides = await getUnratedRides();
       const currentSurvey = await getCurrentSurvey();
 
-      if (currentSurvey) setSurvey(currentSurvey);
       if (unratedRides) setUnratedRides(unratedRides);
+      if (currentSurvey) {
+        setSurvey(currentSurvey);
+        localStorage.setItem('survey', JSON.stringify(currentSurvey));
+      }
     };
 
     getAllData();

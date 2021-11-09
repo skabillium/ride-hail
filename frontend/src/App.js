@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Survey from './pages/Survey';
 import './App.css';
 
 /**
@@ -13,6 +14,7 @@ import './App.css';
 const Routes = () => {
   const routes = useRoutes([
     { path: '/dashboard/:userId', element: <Dashboard /> },
+    { path: '/survey/:rideId', element: <Survey /> },
     { path: '/', element: <Login /> },
   ]);
 

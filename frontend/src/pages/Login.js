@@ -17,7 +17,7 @@ import Container from '@material-ui/core/Container';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Copyright from './Copyright';
+import Copyright from '../components/Copyright';
 
 const theme = createTheme();
 
