@@ -1,14 +1,25 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import './App.css';
 
-function App() {
+const Routes = () => {
+  const routes = useRoutes([
+    { path: '/dashboard/:userId', element: <Dashboard /> },
+    { path: '/', element: <Login /> },
+  ]);
+
+  return routes;
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
