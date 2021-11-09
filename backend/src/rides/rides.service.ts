@@ -27,7 +27,7 @@ export class RidesService {
    */
   async findAllUnrated(userId: string) {
     const user = await this.usersService.findOne(userId);
-    return this.RideModel.find({ _id: { $nin: user.rated } });
+    return this.RideModel.find({ _id: { $nin: user.rated }, user: userId });
   }
 
   findOne(id: string) {
