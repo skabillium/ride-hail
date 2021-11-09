@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import { Container } from '@material-ui/core';
 import axios from 'axios';
 
 import Ride from './Ride';
-import TransitionsModal from './TransitionModal';
 
 const Dashboard = () => {
   // Get User id from url
@@ -38,10 +36,6 @@ const Dashboard = () => {
     getAllData();
   }, []);
 
-  const handleRate = (ride) => {
-    survey ? console.log('SURVEY') : console.log('RATING');
-  };
-
   return (
     <Container>
       <h1>Dashboard</h1>
@@ -51,11 +45,10 @@ const Dashboard = () => {
       <Grid container spacing={3}>
         {unratedRides.map((ride, i) => (
           <Grid item key={i} xs={12} md={6} lg={4}>
-            <Ride ride={ride} handleRate={handleRate} />
+            <Ride ride={ride} survey={survey} />
           </Grid>
         ))}
       </Grid>
-      <TransitionsModal />
     </Container>
   );
 };

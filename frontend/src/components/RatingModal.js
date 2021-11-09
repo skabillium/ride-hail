@@ -19,14 +19,23 @@ const style = {
   p: 4,
 };
 
-const TransitionsModal = () => {
+const RatingModal = ({ active }) => {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    if (active) setOpen(true);
+  };
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button
+        onClick={handleOpen}
+        fullWidth
+        variant="contained"
+        sx={{ mt: 3, mb: 2 }}
+      >
+        Rate ride
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -51,4 +60,4 @@ const TransitionsModal = () => {
   );
 };
 
-export default TransitionsModal;
+export default RatingModal;

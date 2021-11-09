@@ -1,9 +1,10 @@
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import RatingModal from './RatingModal';
 
-const Ride = ({ ride, handleRate }) => {
+const Ride = ({ ride, survey }) => {
+  const activeModal = survey === null;
   return (
     <div>
       <Card>
@@ -12,14 +13,7 @@ const Ride = ({ ride, handleRate }) => {
           subheader={new Date(ride.createdAt).toLocaleDateString()}
         />
         <CardContent>
-          <Button
-            onClick={() => handleRate(ride)}
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Log In
-          </Button>
+          <RatingModal active={activeModal} />
         </CardContent>
       </Card>
     </div>
