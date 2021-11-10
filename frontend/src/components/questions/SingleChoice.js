@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 const SingleChoice = ({ text, options, handleSubmission }) => {
+  // Display single choice question as radio button
   return (
     <div style={{ marginTop: '15%' }}>
       <Typography>{text}</Typography>

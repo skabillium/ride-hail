@@ -36,8 +36,7 @@ const Survey = () => {
     try {
       const response = await axios.post('/responses', data);
 
-      // console.log(JSON.stringify(data));
-
+      // Redirect to dashboard if no error
       if (response.status === 201) navigate(`/dashboard/${user._id}`);
       else window.location.reload();
     } catch (error) {
@@ -45,6 +44,7 @@ const Survey = () => {
     }
   };
 
+  // Display each question according to it's type
   return (
     <div>
       <AppBar />

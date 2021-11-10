@@ -32,6 +32,7 @@ const Dashboard = () => {
       const currentSurvey = await getCurrentSurvey();
 
       if (unratedRides) setUnratedRides(unratedRides);
+      // If user has a survey available, store it in local storage for future use
       if (currentSurvey) {
         setSurvey(currentSurvey);
         localStorage.setItem('survey', JSON.stringify(currentSurvey));
@@ -41,6 +42,7 @@ const Dashboard = () => {
     getAllData();
   }, []);
 
+  // Display all unrated rides or a message if the are none
   return (
     <div>
       <AppBar />

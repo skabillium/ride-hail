@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import RatingModal from './RatingModal';
 
 const Ride = ({ ride, survey }) => {
+  // Display rating modal only if there is no survey
   const activeModal = survey === null;
   return (
     <div>

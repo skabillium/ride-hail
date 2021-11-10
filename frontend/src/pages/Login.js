@@ -34,6 +34,7 @@ const Login = () => {
     const { data: user } = await axios.get(`/users/${email}`);
 
     if (!user) {
+      // If user doesn't exist in db display error
       setEmailError(true);
       setEmailHelperText('Invalid email address');
     } else {

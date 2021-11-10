@@ -9,7 +9,7 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
   const [otherAnswer, setOtherAnswer] = useState('');
   const [checkboxAnswers, setCheckboxAnswers] = useState([]);
 
-  // TODO: Explain this
+  // Currently buggy, probably something to do with checkbox in material ui
   const handleChange = (e) => {
     if (e.target.checked) {
       setCheckboxAnswers([...checkboxAnswers, e.target.value]);
@@ -20,10 +20,10 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
     }
 
     if (otherAnswer) setCheckboxAnswers([...checkboxAnswers, otherAnswer]);
-    console.log(checkboxAnswers);
     handleSubmission(text, checkboxAnswers);
   };
 
+  // Display multiple choice question as checkbox
   return (
     <FormGroup style={{ marginTop: '15%' }}>
       <Typography>{text}</Typography>
