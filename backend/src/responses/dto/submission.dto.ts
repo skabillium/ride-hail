@@ -9,6 +9,5 @@ export class SubmissionDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  @IsString()
   answer: string;
 }

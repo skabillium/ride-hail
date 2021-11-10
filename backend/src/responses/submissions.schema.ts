@@ -6,7 +6,7 @@ export class Submission {
   question: string;
 
   @Prop({ required: true })
-  answer: string;
+  answer: string[];
 }
 
 export const SubmissionSchema = SchemaFactory.createForClass(Submission);

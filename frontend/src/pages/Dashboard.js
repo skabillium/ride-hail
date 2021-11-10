@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 import axios from 'axios';
 
 import Ride from '../components/Ride';
+import AppBar from '../components/AppBar';
 
 const Dashboard = () => {
   // Get User id from url
@@ -41,24 +42,25 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Container>
-      <Typography variant="h2" color="primary">
-        Dashboard
-      </Typography>
-      <Typography>
-        {unratedRides.length !== 0
-          ? `You have ${unratedRides.length} unrated rides`
-          : 'You have rated all your previous rides'}
-      </Typography>
+    <div>
+      <AppBar />
+      <Container style={{ marginTop: '5%' }}>
+        <Typography variant="h3">Dashboard</Typography>
+        <Typography>
+          {unratedRides.length !== 0
+            ? `You have ${unratedRides.length} unrated rides`
+            : 'You have rated all your previous rides'}
+        </Typography>
 
-      <Grid container spacing={3}>
-        {unratedRides.map((ride, i) => (
-          <Grid item key={i} xs={12} md={6} lg={4}>
-            <Ride ride={ride} survey={survey} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+        <Grid container spacing={3}>
+          {unratedRides.map((ride, i) => (
+            <Grid item key={i} xs={12} md={6} lg={4}>
+              <Ride ride={ride} survey={survey} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </div>
   );
 };
 

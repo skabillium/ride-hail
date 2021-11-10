@@ -51,7 +51,7 @@ const RatingModal = ({ rideId, active }) => {
         onClick={handleOpen}
         fullWidth
         variant="contained"
-        color="primary"
+        color="secondary"
         sx={{ mt: 3, mb: 2 }}
       >
         Rate ride

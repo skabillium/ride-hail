@@ -6,9 +6,10 @@ import './App.css';
 
 /**
  * TODO:
- * 1. Separate pages from components
- * 2. Style everything up.
- * 3. Store user info in local storage
+ * 1. Separate pages from components ✔️
+ * 2. Style everything up. ✔️
+ * 3. Store user info in local storage ✔️
+ * 4. Remove unread notifications from app bar. ✔️
  */
 
 const Routes = () => {
