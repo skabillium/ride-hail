@@ -22,8 +22,7 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
     );
     if (otherAnswer) submissions.push(otherAnswer);
 
-    console.log(submissions);
-    handleSubmission(text, []);
+    handleSubmission(text, submissions);
   };
 
   // Display multiple choice question as checkbox
