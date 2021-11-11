@@ -7,20 +7,23 @@ import Typography from '@material-ui/core/Typography';
 
 const MultipleChoice = ({ text, options, handleSubmission }) => {
   const [otherAnswer, setOtherAnswer] = useState('');
-  const [checkboxAnswers, setCheckboxAnswers] = useState([]);
+  const [checkboxAnswers, setCheckboxAnswers] = useState(
+    options.slice().fill(false),
+  );
 
-  // Currently buggy, probably something to do with checkbox in material ui
-  const handleChange = (e) => {
-    if (e.target.checked) {
-      setCheckboxAnswers([...checkboxAnswers, e.target.value]);
-    } else {
-      setCheckboxAnswers([
-        ...checkboxAnswers.filter((answer) => answer !== e.target.value),
-      ]);
-    }
+  const handleCheckbox = (target, index) => {
+    // Updated answers array
+    const updatedAnwers = checkboxAnswers;
+    updatedAnwers[index] = target.checked;
+    setCheckboxAnswers(updatedAnwers);
 
-    if (otherAnswer) setCheckboxAnswers([...checkboxAnswers, otherAnswer]);
-    handleSubmission(text, checkboxAnswers);
+    const submissions = options.filter(
+      (option, index) => checkboxAnswers[index],
+    );
+    if (otherAnswer) submissions.push(otherAnswer);
+
+    console.log(submissions);
+    handleSubmission(text, []);
   };
 
   // Display multiple choice question as checkbox
@@ -32,7 +35,13 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
         <FormControlLabel
           key={i}
           label={option}
-          control={<Checkbox onChange={handleChange} value={option} name={i} />}
+          control={
+            <Checkbox
+              onClick={(e) => handleCheckbox(e.target, i)}
+              value={option}
+              name={i}
+            />
+          }
         />
       ))}
 
