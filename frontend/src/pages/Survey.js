@@ -37,13 +37,11 @@ const Survey = () => {
     };
 
     try {
-      // const response = await axios.post('/responses', data);
+      const response = await axios.post('/responses', data);
 
       // Redirect to dashboard if no error
-      // if (response.status === 201) navigate(`/dashboard/${user._id}`);
-      // else window.location.reload();
-
-      console.log(data);
+      if (response.status === 201) navigate(`/dashboard/${user._id}`);
+      else window.location.reload();
     } catch (error) {
       console.log(error.message);
     }
