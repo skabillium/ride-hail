@@ -3,13 +3,11 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 
 const SingleChoice = ({ text, options, handleSubmission }) => {
   // Display single choice question as radio button
   return (
-    <div style={{ marginTop: '15%' }}>
-      <Typography>{text}</Typography>
+    <div>
       <RadioGroup name="radio-buttons-group">
         {options.map((option, i) => (
           <FormControlLabel

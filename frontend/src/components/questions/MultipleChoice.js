@@ -3,7 +3,6 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 
 const MultipleChoice = ({ text, options, handleSubmission }) => {
   const [otherAnswer, setOtherAnswer] = useState('');
@@ -27,9 +26,7 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
 
   // Display multiple choice question as checkbox
   return (
-    <FormGroup style={{ marginTop: '15%' }}>
-      <Typography>{text}</Typography>
-
+    <FormGroup>
       {options.map((option, i) => (
         <FormControlLabel
           key={i}
