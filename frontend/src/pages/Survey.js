@@ -29,17 +29,17 @@ const Survey = () => {
   };
 
   const handleSubmit = async () => {
-    const data = {
-      ride: rideId,
-      survey: survey._id,
-      user: user._id,
-      submissions,
-    };
-
     try {
+      const data = {
+        ride: rideId,
+        survey: survey._id,
+        user: user._id,
+        submissions,
+      };
+
       const response = await axios.post('/responses', data);
 
-      // Redirect to dashboard if no error
+      // // Redirect to dashboard if no error
       if (response.status === 201) navigate(`/dashboard/${user._id}`);
       else window.location.reload();
     } catch (error) {

@@ -21,7 +21,22 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
     );
     if (otherAnswer) submissions.push(otherAnswer);
 
-    handleSubmission(text, submissions);
+    handleAnswers(submissions, otherAnswer);
+  };
+
+  const handleText = (value) => {
+    setOtherAnswer(value);
+    handleAnswers(
+      options.filter((option, index) => checkboxAnswers[index]),
+      value,
+    );
+  };
+
+  const handleAnswers = (checkboxes, other) => {
+    const answers = checkboxes;
+    if (other) answers.push(other);
+
+    handleSubmission(text, answers);
   };
 
   // Display multiple choice question as checkbox
@@ -47,7 +62,7 @@ const MultipleChoice = ({ text, options, handleSubmission }) => {
         label="Other"
         name="other"
         autoFocus
-        onChange={(e) => setOtherAnswer(e.target.value)}
+        onChange={(e) => handleText(e.target.value)}
       />
     </FormGroup>
   );
